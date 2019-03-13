@@ -3,7 +3,7 @@ class AddAttributesToUsers < ActiveRecord::Migration[5.2]
     add_column :users, :first_name, :string
     add_column :users, :last_name, :string
     add_column :users, :photo, :string
-    add_column :users, :birthday_date, :string
+    add_column :users, :birthday_date, :date
     add_column :users, :residence_address, :string
     add_column :users, :phone_number, :string
     add_column :users, :gender, :string
