@@ -1,2 +1,2 @@
-class Guide < ApplicationRecord
+class Guide < User
 end

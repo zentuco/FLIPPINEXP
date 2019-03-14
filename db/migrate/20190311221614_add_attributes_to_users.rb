@@ -10,5 +10,6 @@ class AddAttributesToUsers < ActiveRecord::Migration[5.2]
     add_column :users, :languages, :string
     add_column :users, :description, :text
     add_column :users, :emergency_contact, :string
+    add_column :users, :type, :string
   end
 end
