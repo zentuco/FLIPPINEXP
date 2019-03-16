@@ -12,7 +12,6 @@ class CreateExperiences < ActiveRecord::Migration[5.2]
       t.text :places2visit
       t.string :equipment_provided
       t.string :equipment_needed
-      t.references :user, foreign_key: true
       t.references :guide, foreign_key: true
       t.references :category, foreign_key: true
 
