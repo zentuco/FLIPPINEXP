@@ -10,10 +10,10 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <% if controller_name == 'pages' && action_name != "home" %>
-      <%= render 'shared/navbar' %>
+    <% if controller_name == 'pages' && action_name == "home" %>
       <%= render 'shared/flashes' %>
     <% else %>
+      <%= render 'shared/navbar' %>
       <%= render "shared/flashes" %>
     <% end %>
     <%= yield %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_11_221614) do
+ActiveRecord::Schema.define(version: 2019_03_16_174633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,9 +21,11 @@ ActiveRecord::Schema.define(version: 2019_03_11_221614) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.bigint "experience_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["experience_id"], name: "index_bookings_on_experience_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -53,14 +55,12 @@ ActiveRecord::Schema.define(version: 2019_03_11_221614) do
     t.text "places2visit"
     t.string "equipment_provided"
     t.string "equipment_needed"
-    t.bigint "user_id"
     t.bigint "guide_id"
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_experiences_on_category_id"
     t.index ["guide_id"], name: "index_experiences_on_guide_id"
-    t.index ["user_id"], name: "index_experiences_on_user_id"
   end
 
   create_table "guides", force: :cascade do |t|
@@ -88,13 +88,14 @@ ActiveRecord::Schema.define(version: 2019_03_11_221614) do
     t.text "description"
     t.string "emergency_contact"
     t.string "type"
+    t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "bookings", "experiences"
+  add_foreign_key "bookings", "users"
   add_foreign_key "experience_reviews", "bookings"
   add_foreign_key "experiences", "categories"
   add_foreign_key "experiences", "guides"
-  add_foreign_key "experiences", "users"
 end
