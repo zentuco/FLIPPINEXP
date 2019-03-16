@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 2019_03_16_174633) do
     t.text "description"
     t.string "emergency_contact"
     t.string "type"
-    t.boolean "admin"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
