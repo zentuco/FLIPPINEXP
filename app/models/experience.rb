@@ -19,5 +19,4 @@ class Experience < ApplicationRecord
   validates :places2visit, presence: true
   validates :equipment_provided, presence: true
   validates :equipment_needed, presence: true
-
 end
