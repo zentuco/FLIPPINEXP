@@ -1,10 +1,9 @@
 class ApplicationController < ActionController::Base
+  include Pundit
+
   protect_from_forgery with: :exception
 
   before_action :authenticate_user!, :configure_permitted_parameters, if: :devise_controller?
-
-  include Pundit
-
   # Pundit: white-list approach.
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
