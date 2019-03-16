@@ -14,5 +14,10 @@ class Experience < ApplicationRecord
   validates :location, presence: true
   validates :language, presence: true
   validates :guide_description_qualifications, presence: true
+  validates :general_description, presence: true
+  validates :places2visit, presence: true
+  validates :places2visit, presence: true
+  validates :equipment_provided, presence: true
+  validates :equipment_needed, presence: true
 
 end
